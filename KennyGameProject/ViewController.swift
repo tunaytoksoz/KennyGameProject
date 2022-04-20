@@ -27,13 +27,14 @@ class ViewController: UIViewController {
     var timeCounter = 0
     var score = 0
     var HighScore = 0
+    var imageViews = [UIImageView]()
 
     func timersStart(){
         timeLabel.text = "10"
         timeCounter = 10
         score = 0
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeFunction), userInfo: nil, repeats: true)
-        timer1 = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(randomGenerator), userInfo: nil, repeats: true)
+        timer1 = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(randomGenerator), userInfo: nil, repeats: true)
         scoreLabel.text = "Skor: \(score)"
     }
     
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
         imageView7.addGestureRecognizer(gestureRecognizer7)
         imageView8.addGestureRecognizer(gestureRecognizer8)
         imageView9.addGestureRecognizer(gestureRecognizer9)
-        
+        imageViews = [imageView1,imageView2,imageView3,imageView4,imageView5,imageView6,imageView7,imageView8,imageView9]
         timersStart()
     }
     
@@ -101,105 +102,17 @@ class ViewController: UIViewController {
     }
     
     @objc func randomGenerator(){
-        random = Int.random(in: 0..<90)
-        switch random{
-            case 0..<10:
-                imageView2.image = UIImage(named: "head")
-                imageView3.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 11..<20:
-                imageView3.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 21..<30:
-                imageView4.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 31..<40:
-                imageView5.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 41..<50:
-                imageView6.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 51..<60:
-                imageView7.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 61..<70:
-                imageView8.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
-            case 71..<80:
-                imageView9.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView1.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-            default:
-                imageView1.image = UIImage(named: "head")
-                imageView2.image = UIImage(named: "")
-                imageView3.image = UIImage(named: "")
-                imageView4.image = UIImage(named: "")
-                imageView5.image = UIImage(named: "")
-                imageView6.image = UIImage(named: "")
-                imageView7.image = UIImage(named: "")
-                imageView8.image = UIImage(named: "")
-                imageView9.image = UIImage(named: "")
+        random = Int.random(in: 0..<8)
+        for imageView in imageViews {
+            imageView.isHidden = true
         }
-
+        
+        imageViews[random].isHidden = false
     }
     
     @objc func scoreUp(){
         score = score + 1
         scoreLabel.text = "Skor: \(score)"
-        print("Score \(score)")
     }
     
     
