@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         
         imageView.isUserInteractionEnabled = true
         imageView.frame = CGRect(x: 25.0, y: height, width: width, height: width)
-        imageView.image = UIImage(named: "head")
+        imageView.image = UIImage(named: "kenny")
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(scoreUp))
         imageView.addGestureRecognizer(gestureRecognizer)
         view.addSubview(imageView)
