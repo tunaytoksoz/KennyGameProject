@@ -1,4 +1,3 @@
 # KennyGameProject
 
-
-![screen record](https://user-images.githubusercontent.com/47984473/164761663-e48bcda7-fb1d-40e0-8762-e227868063ad.gif)
+![screenrecord](https://user-images.githubusercontent.com/47984473/164762015-61526513-3a93-4ffe-b4d4-4e761d563199.gif)
